@@ -91,11 +91,13 @@ const sample = {
   vote_count: 9692,
 };
 
-const movies = [sample, sample, sample, sample, sample, sample, sample];
+const movies = { production_countries: [{name: "United States of America"}]}
+
+//const movies = [sample, sample, sample, sample, sample, sample, sample];
 
 const App = () => {
   return (
-      <MovieDetailsPage movie={sample} images={images} />
+      <MovieDetailsPage movie={sample} images={images} production_countries={movies} />
       );
 };
 
