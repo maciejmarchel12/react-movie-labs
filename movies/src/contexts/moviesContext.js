@@ -7,6 +7,20 @@ const MoviesContextProvider = (props) => {
 
   const [myReviews, setMyReviews] = useState( {} ) 
 
+  const [mustWatch, setMustWatch] = useState( [] )
+
+  const addToMustWatch = (movie) => {
+    let newMustWatch = [];
+    if (!mustWatch.includes(movie.id)){
+      newMustWatch = [...mustWatch, movie.id];
+    }
+    else{
+      newMustWatch = [...mustWatch];
+    }
+    setMustWatch(newMustWatch)
+    console.log("Successfully added to must watch!")
+  }
+
   const addToFavorites = (movie) => {
     let newFavorites = [];
     if (!favorites.includes(movie.id)){
@@ -37,6 +51,8 @@ const MoviesContextProvider = (props) => {
         addToFavorites,
         removeFromFavorites,
         addReview,
+        mustWatch,
+        addToMustWatch,
       }}
     >
       {props.children}

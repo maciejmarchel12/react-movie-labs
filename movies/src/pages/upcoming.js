@@ -5,6 +5,7 @@ import { getUpcoming } from "../api/tmdb-api";
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
 import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
+import AddToMustWatchIcon from "../components/cardIcons/addToMustWatch";
 
 const Upcoming = (props) => {
 
@@ -20,16 +21,20 @@ const Upcoming = (props) => {
 
   const movies = data.results
 
-  const favorites = movies.filter(m => m.favorite)
+  const mustWatch = movies.filter(m => m.mustWatch)
+  localStorage.setItem('favourites', JSON.stringify(mustWatch))
+  const addToMustWatch = (movieId) => true
+
+/*   const favorites = movies.filter(m => m.favorite)
   localStorage.setItem('favourites', JSON.stringify(favorites))
-  const addToFavorites = (movieId) => true
+  const addToFavorites = (movieId) => true */
 
   return (
     <PageTemplate
       title='Discover Movies'
       movies={movies}
       action={(movie) => {
-        return <PlaylistAddIcon movie={movie} />
+        return <AddToMustWatchIcon movie={movie} />
       }}
     />
   );

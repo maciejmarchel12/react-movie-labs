@@ -17,7 +17,7 @@ import Avatar from '@mui/material/Avatar';
 import { MoviesContext } from "../../contexts/moviesContext";
 
 export default function MovieCard({ movie, action }) {
-    const { favorites, addToFavorites } = useContext(MoviesContext);
+    const { favorites, addToFavorites, mustWatch, addToMustWatch } = useContext(MoviesContext);
 
     if (favorites.find((id) => id === movie.id)) {
       movie.favorite = true;
@@ -28,6 +28,17 @@ export default function MovieCard({ movie, action }) {
     const handleAddToFavorite = (e) => {
       e.preventDefault();
       addToFavorites(movie);
+    };
+
+    if (mustWatch.find((id) => id === movie.id)) {
+      movie.mustWatch = true;
+    } else {
+      movie.mustWatch = false
+    }
+
+    const handleAddToMustWatch = (e) => {
+      e.preventDefault();
+      addToMustWatch(movie);
     };
 
   return (
