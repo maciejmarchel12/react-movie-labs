@@ -4,6 +4,7 @@ import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
 import { getUpcoming } from "../api/tmdb-api";
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
+import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
 
 const Upcoming = (props) => {
 
@@ -28,7 +29,7 @@ const Upcoming = (props) => {
       title='Discover Movies'
       movies={movies}
       action={(movie) => {
-        return <AddToFavoritesIcon movie={movie} />
+        return <PlaylistAddIcon movie={movie} />
       }}
     />
   );
