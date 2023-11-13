@@ -35,6 +35,9 @@ const Upcoming = (props) => {
   );
 };
 export default Upcoming;
+
+// IMPORTANT COMMENT: already refactored to included caching in exercise 1
+
 /* const Upcoming = (props) => {
   
   const favorites = movies.filter(m => m.favorite)
